@@ -26,13 +26,15 @@ services:
       POSTGRES_USER: ${DB_USERNAME}
     networks:
       - network-server
+#    ports:
+#      - "5432:5432"
 
   nginx:
     image: nginx:alpine
     container_name: server-nginx
     restart: unless-stopped
     ports:
-      - 8000:80
+      - "8000:80"
     volumes:
       - ./server:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/

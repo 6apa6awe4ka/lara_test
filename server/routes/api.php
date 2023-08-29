@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('article', [ArticleController::class, 'index']);
 Route::get('article/{href}', [ArticleController::class, 'show']);
 Route::get('article/{id}/update', [ArticleController::class, 'update']);
+
+Route::apiResource('game',GameController::class);
